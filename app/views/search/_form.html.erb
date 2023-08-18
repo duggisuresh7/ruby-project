@@ -1,0 +1,5 @@
+<%= form_for @query, url: search_path, method: :get do |q| %>
+    <%= q.search_field :playername_or_role_or_birthplace_i_cont_any, placeholder: "search..." %>
+    <%= q.submit "Search"%>
+<% end %>
+  

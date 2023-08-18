@@ -1,0 +1,7 @@
+<%=  comment.user.email %><br>
+<%= "Comment: #{comment.body}" %><br>
+<%= "Time: #{time_ago_in_words(comment.created_at)}" %><br>
+
+<% unless Current.user.is_admin %>
+    <p><%= button_to "Delete",[comment.player,comment], method: :delete, data: { turbo_confirm: 'Are You Sure?' } %></p>
+<% end %>

@@ -1,0 +1,10 @@
+<h1>Editing bowling</h1>
+
+<%= render "form", bowling: @bowling %>
+
+<br>
+
+<div class="l_c">
+  <%= link_to "Show this bowling", @bowling, class:"nav-link" %> |
+  <%= link_to "Back to bowlings", bowlings_path, class:"nav-link" %>
+</div>

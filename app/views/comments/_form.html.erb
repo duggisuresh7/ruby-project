@@ -1,0 +1,12 @@
+
+<h1> Add Comments </h1>
+<%= form_for([@player, @player.comments.build]) do |f| %>
+  <%= f.hidden_field :user_id, value: Current.user.id %>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p><br>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

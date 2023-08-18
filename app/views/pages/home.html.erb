@@ -1,0 +1,20 @@
+ <!--
+ <h1>Pages#home</h1>
+  <p>Find me in app/views/pages/home.html.erb</p>
+  <%= link_to 'about me', about_path %> 
+  -->
+<div style="dispaly:flex;justify-content:center;align-items:center">
+ <h1 >Players List :</h1>
+</div>
+
+<% @players.each do |pn| %>
+  <div>
+    <h2><strong><%= pn.playername.titlecase %></strong>
+    <%= link_to "show",  player_path(pn.id) %></h2>
+  </div>
+<% end %>
+
+<% if Current.user && Current.user.is_admin %>
+  <%= link_to "New player", new_player_path %>
+<% end %>
+

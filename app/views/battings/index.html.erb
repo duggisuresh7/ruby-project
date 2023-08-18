@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Battings</h1>
+
+<div id="battings">
+  <% @battings.each do |batting| %>
+    <%= render batting %>
+    <p>
+      <%= link_to "Show this batting", batting %>
+    </p>
+  <% end %>
+</div>
+<div class="l_c">
+<%= link_to "New batting", new_batting_path, class:"nav-link" %>
+</div>

@@ -1,0 +1,104 @@
+<h1>adding batting data</h1>
+<div>
+    <%= form_with(model: @batting, url: adding_batting_path(@batting)) do |form| %>
+        <% if @batting.errors.any? %>
+        <div style="color: red">
+            <h2><%= pluralize(@batting.errors.count, "error") %> prohibited this batting from being saved:</h2>
+    
+            <ul>
+            <% @batting.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+            <% end %>
+            </ul>
+        </div>
+        <% end %>
+        
+   
+  
+    <div>
+      <%= form.label :format, style: "display: block" %>
+      <%= form.text_field :format %>
+    </div>
+  
+    <div>
+      <%= form.label :matches, style: "display: block" %>
+      <%= form.number_field :matches %>
+    </div>
+  
+    <div>
+      <%= form.label :innings, style: "display: block" %>
+      <%= form.number_field :innings %>
+    </div>
+  
+    <div>
+      <%= form.label :runs, style: "display: block" %>
+      <%= form.number_field :runs %>
+    </div>
+  
+    <div>
+      <%= form.label :balls, style: "display: block" %>
+      <%= form.number_field :balls %>
+    </div>
+  
+    <div>
+      <%= form.label :highest, style: "display: block" %>
+      <%= form.number_field :highest %>
+    </div>
+
+    <div>
+      <%= form.label :notouts, style: "display: block" %>
+      <%= form.number_field :notout %>
+    </div>
+  
+    <div>
+      <%= form.label :fours, style: "display: block" %>
+      <%= form.number_field :fours %>
+    </div>
+  
+    <div>
+      <%= form.label :sixes, style: "display: block" %>
+      <%= form.number_field :sixes %>
+    </div>
+  
+    <div>
+      <%= form.label :fif, style: "display: block" %>
+      <%= form.number_field :fif %>
+    </div>
+  
+    <div>
+      <%= form.label :hun, style: "display: block" %>
+      <%= form.number_field :hun %>
+    </div>
+
+    <div>
+      <%= form.label :strikerate, style: "display: block" %>
+      <%= form.number_field :strikerate %>
+    </div>
+  
+    <div>
+      <%= form.label :average, style: "display: block" %>
+      <%= form.number_field :avg %>
+    </div>
+  
+    <div>
+      <select name="batting[player_id]" id="">
+        <% @all.each do |x| %>
+            <option value="<%= x.id %>"><%= x.playername %></option>
+        <% end %>
+      </select>
+    </div>
+  
+    <div>
+      <%= form.submit %>
+    </div>
+    
+  <% end %>
+</div>
+  
+
+    <br>
+
+    <div class="l_c">
+        <%= link_to "Show this batting", @batting, class:"nav-link" %> 
+        <%= link_to "Back to battings", battings_path, class:"nav-link" %>
+    </div>

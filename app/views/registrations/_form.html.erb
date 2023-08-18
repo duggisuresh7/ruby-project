@@ -1,0 +1,42 @@
+
+<div style="display: flex; justify-content: center; align-items: center; height: 50vh;">
+   
+      <%= form_with model: @user, url: password_path do |form| %>
+
+        <% if form.object.errors.any? %>
+            <div style="color: red">
+            <h2><%= pluralize(form.object.errors.count, "error") %> prohibited this post from being saved:</h2>
+        
+            <ul>
+                <% form.object.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+            </div>
+        <% end %>
+        <div>
+            <%= form.label :email, style: "display: block" %>
+            <%= form.email_field :email %>
+        </div>
+    
+        <div>
+            <%= form.label :password, style: "display: block" %>
+            <%= form.password_field :password %>
+        </div>
+
+        <div>
+            <%= form.label :password_confirmation, style: "display: block" %>
+            <%= form.password_field :password_confirmation %>
+        </div>
+    
+        
+    
+        <div>
+            <%= form.submit "submit" %>
+        </div>
+    <% end %>
+    
+    <% end %>
+</div>
+
+

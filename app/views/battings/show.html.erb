@@ -1,0 +1,15 @@
+
+<%= render @stats %>
+<% if Current.user && Current.user.is_admin %>
+  <div class="l_c">
+    <%= link_to "Edit this batting", edit_batting_path(@batting), class:"nav-link" %> 
+    
+    <%= link_to "Back to battings", battings_path, class:"nav-link" %>
+
+    <%= link_to "Add Data", adding_batting_path, class:"nav-link" %> 
+
+    <%= link_to "Player Info ", player_path(@batting.player_id), class:"nav-link" %> 
+
+    <%= button_to "Destroy this batting", @batting, method: :delete, class:"btn btn-primary" %>
+  </div>
+<% end %>

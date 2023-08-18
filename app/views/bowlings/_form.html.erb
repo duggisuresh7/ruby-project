@@ -1,0 +1,91 @@
+<%= form_with(model: bowling) do |form| %>
+  <% if bowling.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bowling.errors.count, "error") %> prohibited this bowling from being saved:</h2>
+
+      <ul>
+        <% bowling.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :format, style: "display: block" %>
+    <%= form.text_field :format %>
+  </div>
+
+  <div>
+    <%= form.label :matches, style: "display: block" %>
+    <%= form.number_field :matches %>
+  </div>
+
+  <div>
+    <%= form.label :innings, style: "display: block" %>
+    <%= form.number_field :innings %>
+  </div>
+
+  <div>
+    <%= form.label :balls, style: "display: block" %>
+    <%= form.number_field :balls %>
+  </div>
+
+  <div>
+    <%= form.label :runs, style: "display: block" %>
+    <%= form.number_field :runs %>
+  </div>
+
+  <div>
+    <%= form.label :maidens, style: "display: block" %>
+    <%= form.number_field :maidens %>
+  </div>
+
+  <div>
+    <%= form.label :wickets, style: "display: block" %>
+    <%= form.number_field :wickets %>
+  </div>
+
+  <div>
+    <%= form.label :fourw, style: "display: block" %>
+    <%= form.number_field :fourw %>
+  </div>
+
+  <div>
+    <%= form.label :fifw, style: "display: block" %>
+    <%= form.number_field :fifw %>
+  </div>
+
+  <div>
+    <%= form.label :bbi, style: "display: block" %>
+    <%= form.text_field :bbi %>
+  </div>
+  
+  <div>
+  <%= form.label :strikerate, style: "display: block" %>
+  <%= form.number_field :strikerate %>
+</div>
+
+<div>
+  <%= form.label :avergae, style: "display: block" %>
+  <%= form.number_field :avg %>
+</div>
+
+<div>
+<%= form.label :economy, style: "display: block" %>
+<%= form.number_field :economy %>
+</div>
+
+  
+  <div>
+    <select name="bowling[player_id]" id="">
+      <% @all.each do |x| %>
+          <option value="<%= x.id %>"><%= x.playername %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

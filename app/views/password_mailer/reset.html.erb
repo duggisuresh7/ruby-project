@@ -1,0 +1,12 @@
+
+
+
+# app/views/password_mailer/reset.html.erb
+
+Hi <%= @user.email if @user && @user.respond_to?(:email) %>,
+
+Someone requested a password reset for your account.
+If this was you, click the link below to reset your password.
+The link will expire automatically in 15 minutes.
+
+<%= link_to "Reset Password", password_reset_edit_url(token: @token) %>

@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  format: MyString
+  matches: 1
+  innings: 1
+  balls: 1
+  runs: 1
+  maidens: 1
+  wickets: 1
+  fourw: 1
+  fifw: 1
+  bbi: MyString
+  player: one
+
+two:
+  format: MyString
+  matches: 1
+  innings: 1
+  balls: 1
+  runs: 1
+  maidens: 1
+  wickets: 1
+  fourw: 1
+  fifw: 1
+  bbi: MyString
+  player: two

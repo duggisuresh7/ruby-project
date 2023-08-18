@@ -1,0 +1,124 @@
+<%= stylesheet_link_tag "show_batting", "data-turbo-track": "reload" %>
+<p style="color: green"><%= notice %></p>
+<div>  
+  <h1> PLAYER INFO </h1>
+</div>
+
+<%= render @player %>
+<h1>Batting Records</h1>
+<div>
+  <table border="2px">
+    <thead>
+      <tr>
+        <th>Format</th>
+        <th>Matches</th>
+        <th>Innings</th>
+        <th>Runs</th>
+        <th>Balls</th>
+        <th>Highest</th>
+        <th>Notouts</th>
+        <th>StrikeRate</th>
+        <th>Average</th>
+        <th>Fours</th>
+        <th>Sixes</th>
+        <th>50s</th>
+        <th>100s</th>
+        <% if Current.user && Current.user.is_admin %>
+          <th>Update Data</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @stats.each do |statics|%>
+        <tr>
+          <td><strong><%= statics[:format]%></strong></td>
+          <td><%= statics[:matches] %></td>
+          <td><%= statics[:innings] %></td>
+          <td><%= statics[:runs] %></td>
+          <td><%= statics[:balls] %></td>
+          <td><%= statics[:highest] %></td>
+          <td><%= statics[:notout] %></td>
+          <td><%= statics[:strikerate] %></td>
+          <td><%= statics[:avg] %></td>
+          <td><%= statics[:fours] %></td>
+          <td><%= statics[:sixes] %></td>
+          <td><%= statics[:fif] %></td>
+          <td><%= statics[:hun] %></td>
+          <% if Current.user && Current.user.is_admin %>
+            <td><%= link_to "Update", batting_path(statics[:id]) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<h1> Bowling Records </h1>
+</div>
+<div>
+  <table border="2px">
+    <thead>
+      <tr>
+        <th>Format</th>
+        <th>Matches</th>
+        <th>Innings</th>
+        <th>Runs</th>
+        <th>Balls</th>
+        <th>Maidens</th>
+        <th>Wickets</th>
+        <th>4W</th>
+        <th>5W</th>
+        <th>BBF</th>
+        <th>Economy</th>
+        <th>StrikeRate</th>
+        <th>Average</th>
+        <% if Current.user && Current.user.is_admin %>
+          <th>Update Data</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bowlstats.each do |statics|%>
+        <tr>
+          <td><strong><%= statics[:format]%></strong></td>
+          <td><%= statics[:matches] %></td>
+          <td><%= statics[:innings] %></td>
+          <td><%= statics[:runs] %></td>
+          <td><%= statics[:balls] %></td>
+          <td><%= statics[:maidens] %></td>
+          <td><%= statics[:wickets] %></td>
+          <td><%= statics[:fourw] %></td>
+          <td><%= statics[:fifw] %></td>
+          <td><%= statics[:bbi] %></td>
+          <td><%= statics[:economy] %></td>
+          <td><%= statics[:strikerate] %></td>
+          <td><%= statics[:avg] %></td>
+          <% if Current.user && Current.user.is_admin %>
+            <td><%= link_to "Update", bowling_path(statics[:id]) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<h2> <%= @player.comments.count %> Comments</h2>
+
+<%= render @player.comments %>
+<% unless Current.user && Current.user.is_admin %>
+  <%= render "comments/form" %>
+<% end %>
+
+<% if Current.user && Current.user.is_admin %>
+  <div class="l_c">
+    <%= link_to "Edit this player", edit_player_path(@player), class:"nav-link"%> 
+    <%= link_to "Back to players", players_path, class:"nav-link"%>
+    <%= link_to "create new batting record", new_batting_path, class:"nav-link"%> 
+    <%= link_to "create new bowling record", new_bowling_path, class:"nav-link"%>
+  
+
+    <%= button_to "Destroy this player", @player, method: :delete, class:"btn btn-primary"%>
+  </div>
+<% end %>

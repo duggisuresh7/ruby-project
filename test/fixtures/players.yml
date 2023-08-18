@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  playername: MyString
+  born: MyString
+  birthplace: MyString
+  nickname: MyString
+  role: MyString
+  battingstyle: MyString
+  bowling: MyString
+  style: MyString
+
+two:
+  playername: MyString
+  born: MyString
+  birthplace: MyString
+  nickname: MyString
+  role: MyString
+  battingstyle: MyString
+  bowling: MyString
+  style: MyString
