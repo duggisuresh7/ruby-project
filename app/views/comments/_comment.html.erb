@@ -1,7 +1,15 @@
-<%=  comment.user.email %><br>
+
+<% if comment.user %>
+  <%= "Name: #{comment.user.email}" %><br>
+<% else %>
+  User not available<br>
+<% end %>
+
+
 <%= "Comment: #{comment.body}" %><br>
 <%= "Time: #{time_ago_in_words(comment.created_at)}" %><br>
 
 <% unless Current.user.is_admin %>
     <p><%= button_to "Delete",[comment.player,comment], method: :delete, data: { turbo_confirm: 'Are You Sure?' } %></p>
 <% end %>
+
