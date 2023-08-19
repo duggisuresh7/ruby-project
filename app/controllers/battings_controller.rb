@@ -32,7 +32,7 @@ class BattingsController < ApplicationController
     if @batting
       @e = Batting.find_by(id: @batting.id)
 
-      if @e[:format] == params[:batting][:format] && @editstats[:player_id] == params[:batting][:player_id].to_i
+      if @e[:format] == params[:batting][:format] && @e[:player_id] == params[:batting][:player_id].to_i
         @e.matches += params[:batting][:matches].to_i
         @e.innings += params[:batting][:innings].to_i
         @e.runs += params[:batting][:runs].to_i
